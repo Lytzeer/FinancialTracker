@@ -1,0 +1,43 @@
+name: Build and Release Installer
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-app:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    name: Build the application
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: "22"
+          distribution: "temurin"
+
+      - name: Extract version from build.gradle
+        id: extract_version
+        run: |
+          $versionLine = Get-Content build.gradle | Select-String -Pattern "^version"
+          $version = $versionLine -replace "version ", "" -replace "'", ""
+          echo "VERSION=$version" >> $env:GITHUB_ENV
+        shell: pwsh
+
+      - name: Build application
+        run: ./gradlew jpackage
+        env:
+          JAVA_HOME: ${{ steps.java.outputs.java-home }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: FinancialTracker-${{ env.VERSION }}-${{ matrix.os }}
+          path: build/jpackage/*
