@@ -51,13 +51,13 @@
                     </cellValueFactory>
                 </TableColumn>
             </columns>
-<!--            <items>-->
-<!--                <FXCollections fx:factory="observableArrayList">-->
-<!--                    <Revenus period="2020-01" salary="100.0" helpers="100.0" passive_income="100.0" self_enterprise="100.0" other="100.0" />-->
-<!--                    <Revenus period="2020-02" salary="100.0" helpers="100.0" passive_income="100.0" self_enterprise="100.0" other="100.0" />-->
-<!--                    <Revenus period="2020-03" salary="100.0" helpers="100.0" passive_income="100.0" self_enterprise="100.0" other="100.0" />-->
-<!--                </FXCollections>-->
-<!--            </items>-->
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <Revenus period="2020-01" salary="100.0" helpers="100.0" passive_income="100.0" self_enterprise="100.0" other="100.0" />
+                    <Revenus period="2020-02" salary="100.0" helpers="100.0" passive_income="100.0" self_enterprise="100.0" other="100.0" />
+                    <Revenus period="2020-03" salary="100.0" helpers="100.0" passive_income="100.0" self_enterprise="100.0" other="100.0" />
+                </FXCollections>
+            </items>
         </TableView>
         <Button fx:id="addButton" text="Ajouter" onAction="#openAddRevenusView" />
     </HBox>

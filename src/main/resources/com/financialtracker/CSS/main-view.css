@@ -44,3 +44,8 @@ TableColumn {
 .table-view .column-header {
     -fx-background-color: #1196f8;
 }
+
+.chart {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10;
+}
