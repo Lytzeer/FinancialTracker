@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.chart.PieChart?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.financialtracker.SecondView"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <fx:include source="header.fxml"/>
+
+    <Label text="Welcome to the Financial Tracker!" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0"/>
+
+    <PieChart fx:id="pieChart" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="60.0" prefWidth="400.0" prefHeight="300.0">
+
+    </PieChart>
+
+</AnchorPane>

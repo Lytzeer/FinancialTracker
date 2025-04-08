@@ -53,20 +53,32 @@ public class Database {
     private static boolean createTableIfNotExists() {
         String createTables =
                 """
-                        CREATE TABLE IF NOT EXISTS expense(
-                             date TEXT NOT NULL,
-                             housing REAL NOT NULL,
-                             food REAL NOT NULL,
-                             goingOut REAL NOT NULL,
-                             transportation REAL NOT NULL,
-                             travel REAL NOT NULL,
-                             tax REAL NOT NULL,
-                             other REAL NOT NULL
-                     );
-                   """;
-
+                             CREATE TABLE IF NOT EXISTS expense(
+                                  date TEXT NOT NULL,
+                                  housing REAL NOT NULL,
+                                  food REAL NOT NULL,
+                                  goingOut REAL NOT NULL,
+                                  transportation REAL NOT NULL,
+                                  travel REAL NOT NULL,
+                                  tax REAL NOT NULL,
+                                  other REAL NOT NULL
+                             );
+                        """;
+        String createRevenus =
+                """
+                             CREATE TABLE IF NOT EXISTS revenus(
+                                date TEXT NOT NULL,
+                                salary REAL NOT NULL,
+                                helpers REAL NOT NULL,
+                                self_enterprise REAL NOT NULL,
+                                passive_income REAL NOT NULL,
+                                other REAL NOT NULL
+                            );
+                        """;
         try (Connection connection = Database.connect()) {
             PreparedStatement statement = connection.prepareStatement(createTables);
+            statement.executeUpdate();
+            statement = connection.prepareStatement(createRevenus);
             statement.executeUpdate();
             return true;
         } catch (SQLException exception) {

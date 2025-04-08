@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import com.financialtracker.Revenus?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.financialtracker.RevenusController" stylesheets="@CSS/main-view.css">
+    <fx:include source="header.fxml"></fx:include>
+
+    <!-- Text to present the page  -->
+    <Label text="Tableau récapitulatif des revenus" styleClass="page-title" />
+
+    <HBox alignment="CENTER">
+        <TableView fx:id="revenusTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="period" text="Période">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="period" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="salary" text="salaire">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="salary" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="helpers" text="Aides">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="helpers" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="self_enterprise" text="Auto-entreprise">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="self_enterprise" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="passive_income" text="Revenus passifs">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="passive_income" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="other" text="Autres">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="other" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+<!--            <items>-->
+<!--                <FXCollections fx:factory="observableArrayList">-->
+<!--                    <Revenus period="2020-01" salary="100.0" helpers="100.0" passive_income="100.0" self_enterprise="100.0" other="100.0" />-->
+<!--                    <Revenus period="2020-02" salary="100.0" helpers="100.0" passive_income="100.0" self_enterprise="100.0" other="100.0" />-->
+<!--                    <Revenus period="2020-03" salary="100.0" helpers="100.0" passive_income="100.0" self_enterprise="100.0" other="100.0" />-->
+<!--                </FXCollections>-->
+<!--            </items>-->
+        </TableView>
+        <Button fx:id="addButton" text="Ajouter" onAction="#openAddRevenusView" />
+    </HBox>
+</VBox>

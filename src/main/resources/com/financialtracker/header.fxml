@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+
+<MenuBar xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:controller="com.financialtracker.Header">
+    <Menu text="Navigation">
+        <MenuItem text="Tableau" onAction="#showMain"/>
+        <MenuItem text="Dashoard" onAction="#showDashbord"/>
+        <MenuItem text="Revenus" onAction="#showRevenus"/>
+    </Menu>
+</MenuBar>
